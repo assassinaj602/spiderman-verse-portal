@@ -1,0 +1,78 @@
+<!-- Placeholder for Miles Morales -->
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="milesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="venomGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#FF0080;stop-opacity:0.3" />
+    </radialGradient>
+    <filter id="electricGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="400" fill="url(#milesGradient)"/>
+  
+  <!-- Venom blast energy effect -->
+  <circle cx="150" cy="200" r="120" fill="url(#venomGlow)" opacity="0.3"/>
+  
+  <!-- Body silhouette -->
+  <ellipse cx="150" cy="280" rx="58" ry="118" fill="#000000" stroke="#FFD700" stroke-width="2"/>
+  
+  <!-- Head -->
+  <circle cx="150" cy="120" r="50" fill="#000000" stroke="#FFD700" stroke-width="2"/>
+  
+  <!-- Eyes (Miles style) -->
+  <ellipse cx="135" cy="110" rx="12" ry="15" fill="#FFD700" opacity="0.9"/>
+  <ellipse cx="165" cy="110" rx="12" ry="15" fill="#FFD700" opacity="0.9"/>
+  <ellipse cx="135" cy="110" rx="6" ry="8" fill="#000000"/>
+  <ellipse cx="165" cy="110" rx="6" ry="8" fill="#000000"/>
+  
+  <!-- Spider emblem (Miles style) -->
+  <path d="M150 135 L145 150 L155 150 Z" fill="#FFD700" filter="url(#electricGlow)"/>
+  <circle cx="150" cy="135" r="6" fill="#FFD700"/>
+  
+  <!-- Venom blast effects on hands -->
+  <circle cx="120" cy="250" r="15" fill="#FF0080" opacity="0.6" filter="url(#electricGlow)"/>
+  <circle cx="180" cy="250" r="15" fill="#FF0080" opacity="0.6" filter="url(#electricGlow)"/>
+  
+  <!-- Electric web pattern -->
+  <g stroke="#FFD700" stroke-width="1.5" opacity="0.7" fill="none">
+    <circle cx="150" cy="120" r="25"/>
+    <line x1="125" y1="120" x2="175" y2="120"/>
+    <line x1="150" y1="95" x2="150" y2="145"/>
+    <path d="M130 105 Q150 115 170 105" stroke-width="2"/>
+    <path d="M130 135 Q150 125 170 135" stroke-width="2"/>
+  </g>
+  
+  <!-- Hoodie details -->
+  <path d="M115 100 Q150 85 185 100 Q180 110 150 115 Q120 110 115 100" fill="#1a1a1a" stroke="#FFD700" stroke-width="1"/>
+  
+  <!-- Red accents (like the Jordan shoes inspiration) -->
+  <rect x="125" y="340" width="50" height="20" fill="#FF0000" opacity="0.8"/>
+  <rect x="135" y="200" width="30" height="4" fill="#FF0000" opacity="0.6"/>
+  
+  <!-- Invisibility shimmer effect -->
+  <g opacity="0.3">
+    <rect x="130" y="200" width="40" height="100" fill="url(#venomGlow)" transform="skewX(15)"/>
+  </g>
+  
+  <!-- Electric energy lines -->
+  <g stroke="#FFD700" stroke-width="2" opacity="0.8" fill="none">
+    <path d="M100 200 Q120 190 140 200 Q160 210 180 200 Q200 190 220 200"/>
+    <path d="M90 250 Q110 240 130 250 Q150 260 170 250 Q190 240 210 250"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="150" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFD700" filter="url(#electricGlow)">MILES MORALES</text>
+  <text x="150" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#FFD700" opacity="0.8">EARTH-1610</text>
+</svg>

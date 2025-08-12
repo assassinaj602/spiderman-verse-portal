@@ -1,0 +1,12 @@
+# This is a placeholder for the portal opening sound effect
+# In a real implementation, this would be a WAV or MP3 file
+# For now, this serves as a placeholder file structure
+
+# Suggested sound characteristics for portal_open.mp3:
+# - Duration: 2-3 seconds
+# - Deep, resonant whoosh with electronic undertones
+# - Frequency sweep from low to high
+# - Some reverb/echo effect to suggest interdimensional travel
+# - Volume should start quiet, peak in middle, fade out
+
+echo "Portal sound placeholder - replace with actual audio file"

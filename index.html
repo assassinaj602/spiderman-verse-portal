@@ -1,0 +1,89 @@
+<!DOCTYPE ht<body class="bg-black text-white overflow-hidden" style="background: linear-gradient(135deg, #000000, #1a0000, #330000, #000000);">
+    <!-- Loading Screen -->>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spider-Verse Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/popmotion@11.0.0/dist/popmotion.global.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-black text-white overflow-hidden" style="background: linear-gradient(135deg, #000000, #1a0000, #330000, #000000);">,>
+    <!-- Loading Screen -->
+    <div id="loading" class="fixed inset-0 bg-black z-50 flex items-center justify-center">
+        <div class="holographic-text text-4xl font-bold">LOADING MULTIVERSE...</div>
+    </div>
+
+    <!-- Main Container -->
+    <div id="app" class="relative w-screen h-screen">
+        <!-- Three.js Canvas -->
+        <canvas id="portal-canvas" class="absolute inset-0 z-10"></canvas>
+        
+        <!-- UI Overlay -->
+        <div class="absolute inset-0 z-20 pointer-events-none">
+            <!-- Header -->
+            <header class="p-8 text-center pointer-events-auto">
+                <h1 class="holographic-text text-6xl font-bold mb-4 glitch-text" data-text="SPIDER-VERSE">SPIDER-VERSE</h1>
+                <p class="text-xl text-red-400">Choose Your Spider-Hero</p>
+            </header>
+
+            <!-- Character Selection -->
+            <div id="character-container" class="absolute bottom-0 left-0 right-0 p-8 pointer-events-auto">
+                <div class="flex justify-center space-x-4">
+                    <!-- Characters will be dynamically generated -->
+                </div>
+            </div>
+
+            <!-- Portal Info Panel -->
+            <div id="info-panel" class="absolute top-1/2 right-8 transform -translate-y-1/2 bg-black bg-opacity-80 p-6 rounded-lg border border-red-500 max-w-sm opacity-0 pointer-events-auto">
+                <h3 class="holographic-text text-2xl font-bold mb-4" id="character-name">Select a Spider-Hero</h3>
+                <p class="text-gray-300" id="character-description">Hover over a character to learn more about them.</p>
+                <div class="mt-4">
+                    <div class="text-sm text-red-400 mb-2">Universe ID:</div>
+                    <div class="font-mono text-lg text-blue-400" id="universe-id">---</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Glitch Overlay -->
+        <div id="glitch-overlay" class="absolute inset-0 z-30 pointer-events-none opacity-0">
+            <div class="glitch-effect w-full h-full bg-gradient-to-r from-red-500 via-transparent to-blue-500"></div>
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="portal-sound" preload="auto">
+        <source src="assets/sounds/portal_open.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="whoosh-sound" preload="auto">
+        <source src="assets/sounds/whoosh.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/portal.js"></script>
+    <script src="js/character.js"></script>
+    <script src="js/glitch.js"></script>
+
+    <script>
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize all systems
+            MainApp.init();
+            PortalSystem.init();
+            CharacterSystem.init();
+            GlitchSystem.init();
+
+            // Hide loading screen after everything is loaded
+            setTimeout(() => {
+                gsap.to('#loading', { opacity: 0, duration: 1, onComplete: () => {
+                    document.getElementById('loading').style.display = 'none';
+                }});
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# This is a placeholder for the whoosh sound effect
+# In a real implementation, this would be a WAV or MP3 file
+# For now, this serves as a placeholder file structure
+
+# Suggested sound characteristics for whoosh.mp3:
+# - Duration: 0.5-1 second
+# - Quick, sharp whoosh sound
+# - Higher frequency than portal sound
+# - Sharp attack, quick decay
+# - Could include subtle web-shooting sound elements
+
+echo "Whoosh sound placeholder - replace with actual audio file"

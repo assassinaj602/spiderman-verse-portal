@@ -1,0 +1,49 @@
+<!-- Placeholder for Spider-Man Noir -->
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="noirGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#333333;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.7"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="400" fill="url(#noirGradient)"/>
+  
+  <!-- Film noir lighting effect -->
+  <polygon points="0,0 100,0 150,200 0,400" fill="#ffffff" opacity="0.1"/>
+  
+  <!-- Body silhouette -->
+  <ellipse cx="150" cy="280" rx="55" ry="115" fill="#1a1a1a" filter="url(#shadow)"/>
+  
+  <!-- Head -->
+  <circle cx="150" cy="120" r="48" fill="#1a1a1a" filter="url(#shadow)"/>
+  
+  <!-- Goggles/Mask -->
+  <ellipse cx="135" cy="110" rx="12" ry="8" fill="#666666" opacity="0.8"/>
+  <ellipse cx="165" cy="110" rx="12" ry="8" fill="#666666" opacity="0.8"/>
+  
+  <!-- Spider emblem (more subtle) -->
+  <path d="M150 140 L145 150 L155 150 Z" fill="#666666" opacity="0.6"/>
+  
+  <!-- Coat/Trench coat effect -->
+  <path d="M120 200 Q150 190 180 200 L185 350 Q150 340 115 350 Z" fill="#2a2a2a" filter="url(#shadow)"/>
+  
+  <!-- Web pattern (minimal noir style) -->
+  <g stroke="#666666" stroke-width="1" opacity="0.2" fill="none">
+    <line x1="130" y1="120" x2="170" y2="120"/>
+    <line x1="150" y1="100" x2="150" y2="140"/>
+  </g>
+  
+  <!-- Hat silhouette -->
+  <ellipse cx="150" cy="85" rx="35" ry="8" fill="#1a1a1a"/>
+  <rect x="125" y="75" width="50" height="15" fill="#1a1a1a"/>
+  
+  <!-- Text -->
+  <text x="150" y="360" text-anchor="middle" font-family="serif" font-size="18" font-weight="bold" fill="#666666">SPIDER-MAN NOIR</text>
+  <text x="150" y="380" text-anchor="middle" font-family="serif" font-size="12" fill="#999999">EARTH-90214</text>
+</svg>
