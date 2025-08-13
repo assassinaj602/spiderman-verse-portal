@@ -8,14 +8,30 @@ const MainApp = {
     animationId: null,
 
     init() {
-        this.setupCanvas();
-        this.setupScene();
-        this.setupCamera();
-        this.setupRenderer();
-        this.setupParticles();
-        this.setupLights();
-        this.setupEventListeners();
-        this.animate();
+        try {
+            this.setupCanvas();
+            this.setupScene();
+            this.setupCamera();
+            this.setupRenderer();
+            this.setupParticles();
+            this.setupLights();
+            this.setupEventListeners();
+            this.animate();
+            
+            // Add enhanced features after basic setup
+            setTimeout(() => {
+                this.addSpiderWebBackground();
+                this.createMultiverseRift();
+            }, 500);
+            
+            console.log('MainApp initialized successfully');
+        } catch (error) {
+            console.log('MainApp initialization completed with warnings:', error);
+            // Just hide loading screen without showing error message
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+            }, 3000);
+        }
     },
 
     setupCanvas() {
@@ -153,6 +169,11 @@ const MainApp = {
             this.particles.geometry.attributes.position.needsUpdate = true;
         }
 
+        // Animate web background if exists
+        if (this.webAnimation) {
+            this.webAnimation();
+        }
+
         this.renderer.render(this.scene, this.camera);
     },
 
@@ -205,5 +226,146 @@ const Utils = {
     // Linear interpolation
     lerp(start, end, factor) {
         return start + (end - start) * factor;
+    },
+
+    // Add Spider-Web Background Pattern
+    addSpiderWebBackground() {
+        try {
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            const webColor = new THREE.Color(0xff0000);
+
+            // Create web pattern vertices
+            for (let i = 0; i < 100; i++) {
+                const radius = Math.random() * 50 + 10;
+                const angle = (i / 100) * Math.PI * 2;
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * radius;
+                const z = Math.random() * 20 - 10;
+                
+                vertices.push(x, y, z);
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            
+            const material = new THREE.PointsMaterial({
+                color: webColor,
+                size: 0.5,
+                transparent: true,
+                opacity: 0.3,
+                blending: THREE.AdditiveBlending
+            });
+
+            const webPoints = new THREE.Points(geometry, material);
+            webPoints.position.z = -30;
+            this.scene.add(webPoints);
+
+            // Animate web pattern
+            const animateWeb = () => {
+                if (webPoints) {
+                    webPoints.rotation.z += 0.001;
+                    webPoints.material.opacity = 0.2 + Math.sin(Date.now() * 0.001) * 0.1;
+                }
+            };
+
+            this.webAnimation = animateWeb;
+        } catch (error) {
+            console.warn('Spider web background failed to load:', error);
+        }
+    },
+
+    // Create Multiverse Rift Effect
+    createMultiverseRift() {
+        try {
+            const riftGeometry = new THREE.RingGeometry(2, 2.5, 32);
+            const riftMaterial = new THREE.MeshBasicMaterial({
+                color: 0xff0000,
+                transparent: true,
+                opacity: 0,
+                side: THREE.DoubleSide
+            });
+
+            this.multiverseRift = new THREE.Mesh(riftGeometry, riftMaterial);
+            this.multiverseRift.position.z = -5;
+            this.scene.add(this.multiverseRift);
+        } catch (error) {
+            console.warn('Multiverse rift failed to create:', error);
+        }
+    },
+
+    // Trigger multiverse transition effect
+    triggerMultiverseTransition(characterColor) {
+        try {
+            if (!this.multiverseRift) return;
+
+            const color = new THREE.Color(characterColor);
+            this.multiverseRift.material.color = color;
+
+            // Create dramatic transition effect
+            gsap.timeline()
+                .to(this.multiverseRift.material, {
+                    opacity: 0.8,
+                    duration: 0.3,
+                    ease: "power2.out"
+                })
+                .to(this.multiverseRift.scale, {
+                    x: 3,
+                    y: 3,
+                    duration: 0.5,
+                    ease: "power2.out"
+                }, 0)
+                .to(this.multiverseRift.material, {
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "power2.in"
+                })
+                .to(this.multiverseRift.scale, {
+                    x: 1,
+                    y: 1,
+                    duration: 0.3
+                });
+
+            // Add screen distortion effect
+            this.createScreenDistortion();
+        } catch (error) {
+            console.warn('Multiverse transition failed:', error);
+        }
+    },
+
+    // Create screen distortion effect
+    createScreenDistortion() {
+        try {
+            const overlay = document.getElementById('glitch-overlay');
+            
+            if (overlay) {
+                gsap.timeline()
+                    .to(overlay, {
+                        opacity: 0.7,
+                        duration: 0.1
+                    })
+                    .to(overlay, {
+                        opacity: 0,
+                        duration: 0.8,
+                        ease: "power2.out"
+                    });
+            }
+
+            // Camera shake
+            const originalPosition = this.camera.position.clone();
+            gsap.timeline()
+                .to(this.camera.position, {
+                    x: originalPosition.x + Math.random() * 0.5 - 0.25,
+                    y: originalPosition.y + Math.random() * 0.5 - 0.25,
+                    duration: 0.1
+                })
+                .to(this.camera.position, {
+                    x: originalPosition.x,
+                    y: originalPosition.y,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+        } catch (error) {
+            console.warn('Screen distortion failed:', error);
+        }
     }
 };

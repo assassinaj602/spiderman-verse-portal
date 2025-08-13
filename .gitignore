@@ -19,6 +19,11 @@ yarn-error.log*
 ehthumbs.db
 Thumbs.db
 
+# Backup files
+*.backup
+*_clean.html
+index_clean.html
+
 # Logs
 logs
 *.log
