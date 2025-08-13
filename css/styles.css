@@ -1,28 +1,5 @@
 /* Custom CSS for Spider-Verse Portal */
 
-/* Hide any browser error overlays or notifications */
-.error-overlay,
-.error-banner,
-.error-notification,
-[class*="error"],
-[id*="error"]:not(#loading) {
-    display: none !important;
-    visibility: hidden !important;
-}
-
-/* Z-Index Layer Management for GitHub Pages compatibility */
-#character-container {
-    position: relative;
-    z-index: 10;
-    isolation: isolate;
-}
-
-.flex {
-    position: relative;
-    z-index: 10;
-    isolation: isolate;
-}
-
 /* Enhanced Spider-Man Themed Background */
 body {
     margin: 0;
@@ -191,7 +168,6 @@ body::after {
     text-align: center;
     display: block;
     margin: 0 10px;
-    z-index: 100 !important;
 }
 
 .character-card::before {
@@ -222,7 +198,6 @@ body::after {
         0 10px 30px rgba(0, 0, 0, 0.5),
         0 0 30px var(--character-color, #ff0000),
         0 0 60px rgba(255, 0, 0, 0.3);
-    z-index: 200 !important;
 }
 
 .character-card.selected {
@@ -233,7 +208,6 @@ body::after {
         inset 0 0 20px rgba(255, 255, 255, 0.1),
         0 0 80px rgba(255, 0, 0, 0.4);
     transform: scale(1.1);
-    z-index: 300 !important;
 }
 
 .character-image {
@@ -787,7 +761,7 @@ body::after {
     border: 2px solid #ff0000;
     border-radius: 15px;
     padding: 20px;
-    z-index: 50000 !important;
+    z-index: 10000;
     backdrop-filter: blur(10px);
     box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
     max-height: 85vh;
@@ -1084,7 +1058,6 @@ body::after {
 .hover-tooltip {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: left;
-    z-index: 1000;
 }
 
 .hover-tooltip::before {
@@ -1134,7 +1107,7 @@ body::after {
     font-size: 1rem;
     font-weight: bold;
     transition: all 0.3s ease;
-    z-index: 1000 !important;
+    z-index: 1000;
     box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
 }
 
@@ -1163,7 +1136,7 @@ body::after {
     border: 2px solid #ff0000;
     border-radius: 20px;
     padding: 25px;
-    z-index: 50002 !important;
+    z-index: 10002;
     backdrop-filter: blur(15px);
     box-shadow: 0 0 50px rgba(255, 0, 0, 0.4);
     max-height: 90vh;
@@ -1601,181 +1574,4 @@ body::after {
 
 .confetti {
     border-radius: 50%;
-}
-
-/* Multiverse Generator Styles */
-.multiverse-generator {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: linear-gradient(45deg, #4A90E2, #1E3A8A);
-    border: none;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
-}
-
-.multiverse-generator:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
-    background: linear-gradient(45deg, #5BA3F5, #2952B8);
-}
-
-@media (max-width: 768px) {
-    .multiverse-generator {
-        top: 15px;
-        left: 15px;
-        padding: 10px 16px;
-        font-size: 0.9rem;
-    }
-}
-
-.multiverse-rift {
-    position: fixed;
-    width: 200px;
-    background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(74, 144, 226, 0.9));
-    border: 2px solid #4A90E2;
-    border-radius: 15px;
-    z-index: 1001;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 30px rgba(74, 144, 226, 0.4);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.multiverse-rift:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 0 40px rgba(74, 144, 226, 0.6);
-}
-
-.multiverse-rift.themed-rift.miles-themed {
-    background: linear-gradient(135deg, rgba(255, 69, 0, 0.9), rgba(255, 165, 0, 0.9));
-    border-color: #FF4500;
-    box-shadow: 0 0 30px rgba(255, 69, 0, 0.4);
-}
-
-.multiverse-rift.themed-rift.gwen-themed {
-    background: linear-gradient(135deg, rgba(255, 20, 147, 0.9), rgba(255, 105, 180, 0.9));
-    border-color: #FF1493;
-    box-shadow: 0 0 30px rgba(255, 20, 147, 0.4);
-}
-
-.multiverse-rift.themed-rift.noir-themed {
-    background: linear-gradient(135deg, rgba(47, 79, 79, 0.9), rgba(105, 105, 105, 0.9));
-    border-color: #2F4F4F;
-    box-shadow: 0 0 30px rgba(47, 79, 79, 0.4);
-}
-
-.multiverse-rift.themed-rift.amazing-themed {
-    background: linear-gradient(135deg, rgba(220, 20, 60, 0.9), rgba(255, 0, 0, 0.9));
-    border-color: #DC143C;
-    box-shadow: 0 0 30px rgba(220, 20, 60, 0.4);
-}
-
-.multiverse-rift.themed-rift.\32 099-themed {
-    background: linear-gradient(135deg, rgba(0, 191, 255, 0.9), rgba(30, 144, 255, 0.9));
-    border-color: #00BFFF;
-    box-shadow: 0 0 30px rgba(0, 191, 255, 0.4);
-}
-
-@media (max-width: 768px) {
-    .multiverse-rift {
-        width: 160px;
-    }
-}
-
-@media (max-width: 480px) {
-    .multiverse-rift {
-        width: 140px;
-    }
-}
-
-.rift-content {
-    padding: 15px;
-    text-align: center;
-    position: relative;
-}
-
-@media (max-width: 768px) {
-    .rift-content {
-        padding: 12px;
-    }
-}
-
-.rift-id {
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: rgba(255, 255, 255, 0.9);
-    font-family: monospace;
-}
-
-@media (max-width: 768px) {
-    .rift-id {
-        font-size: 0.7rem;
-        margin-bottom: 6px;
-    }
-}
-
-.rift-type {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #fff;
-}
-
-@media (max-width: 768px) {
-    .rift-type {
-        font-size: 0.9rem;
-        margin-bottom: 6px;
-    }
-}
-
-.rift-description {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.3;
-    font-style: italic;
-}
-
-@media (max-width: 768px) {
-    .rift-description {
-        font-size: 0.7rem;
-    }
-}
-
-.rift-close {
-    position: absolute;
-    top: 5px;
-    right: 8px;
-    color: rgba(255, 255, 255, 0.7);
-    cursor: pointer;
-    font-size: 16px;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all 0.2s ease;
-}
-
-.rift-close:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
 }
