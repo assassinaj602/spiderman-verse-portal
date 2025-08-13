@@ -10,6 +10,19 @@
     visibility: hidden !important;
 }
 
+/* Z-Index Layer Management for GitHub Pages compatibility */
+#character-container {
+    position: relative;
+    z-index: 10;
+    isolation: isolate;
+}
+
+.flex {
+    position: relative;
+    z-index: 10;
+    isolation: isolate;
+}
+
 /* Enhanced Spider-Man Themed Background */
 body {
     margin: 0;
@@ -178,6 +191,7 @@ body::after {
     text-align: center;
     display: block;
     margin: 0 10px;
+    z-index: 100 !important;
 }
 
 .character-card::before {
@@ -208,6 +222,7 @@ body::after {
         0 10px 30px rgba(0, 0, 0, 0.5),
         0 0 30px var(--character-color, #ff0000),
         0 0 60px rgba(255, 0, 0, 0.3);
+    z-index: 200 !important;
 }
 
 .character-card.selected {
@@ -218,6 +233,7 @@ body::after {
         inset 0 0 20px rgba(255, 255, 255, 0.1),
         0 0 80px rgba(255, 0, 0, 0.4);
     transform: scale(1.1);
+    z-index: 300 !important;
 }
 
 .character-image {
@@ -771,7 +787,7 @@ body::after {
     border: 2px solid #ff0000;
     border-radius: 15px;
     padding: 20px;
-    z-index: 10000;
+    z-index: 50000 !important;
     backdrop-filter: blur(10px);
     box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
     max-height: 85vh;
@@ -1068,6 +1084,7 @@ body::after {
 .hover-tooltip {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: left;
+    z-index: 1000;
 }
 
 .hover-tooltip::before {
@@ -1117,7 +1134,7 @@ body::after {
     font-size: 1rem;
     font-weight: bold;
     transition: all 0.3s ease;
-    z-index: 1000;
+    z-index: 1000 !important;
     box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
 }
 
@@ -1146,7 +1163,7 @@ body::after {
     border: 2px solid #ff0000;
     border-radius: 20px;
     padding: 25px;
-    z-index: 10002;
+    z-index: 50002 !important;
     backdrop-filter: blur(15px);
     box-shadow: 0 0 50px rgba(255, 0, 0, 0.4);
     max-height: 90vh;
